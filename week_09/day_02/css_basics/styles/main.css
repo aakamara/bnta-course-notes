@@ -1,0 +1,118 @@
+/* 
+Cascading order:
+1. Inline
+2. Stlye element (in head)
+3. Externa: sheet
+
+Specificity
+*/
+
+/* this is an immediate descendant selector */
+
+/* html > body{
+    background-color: pink;
+}
+
+body {
+    background-color: blue;
+} */
+/* div > nav {
+    background-color: white;
+}
+
+div li {
+    background-color: orange;
+} */
+
+/* body{
+    background-color: grey;
+} */
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #999;
+}
+
+/* child selector */
+body div#container {
+    background-color: #888;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+/* flex is 1D layout system in html */
+    display: flex;
+    flex-direction: column;
+}
+div header#header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #555;
+}
+
+nav#main-menu > ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+nav#main-menu > ul > li {
+    list-style: none;
+}
+
+nav#main-menu > ul > li > a {
+    text-decoration: none;
+    font-size: 1.2em;
+    display: block;
+    padding: 1rem;
+    color: white;
+    background-color: #444;
+}
+nav#main-menu > ul > li > a:hover{
+    background-color: blueviolet;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    /* grid-template-columns: 25% 25% 25% 25%; */
+}
+
+/* the dot give the name of a class */
+.grid-item {
+    background-color: #777;
+    text-align: center;
+}
+
+.grid-item a {
+    text-decoration: none;
+    color: white;
+    font-weight: 800;
+}
+
+/* media queries allow custom rules for 
+specific viewing scenario */
+
+@media all and (max-width: 700px){
+    nav#main-menu > ul {
+        flex-direction: column;
+    }
+    .grid-container{
+        grid-template-columns: 100%;
+    }
+}
+
+@media all and (max-width: 1000px){
+    .grid-container{
+        grid-template-columns: 50% 50%;
+    }
+}
+
+@media print{
+    img{
+        border: 4 px dotted red;
+    }
+}
